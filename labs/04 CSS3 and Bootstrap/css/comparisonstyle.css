@@ -1,0 +1,41 @@
+body {
+ font-size: large;
+ font-family: 'Roboto Mono', monospace;
+}
+#title {
+    background-color: red;
+    color: white;
+}
+#tech {
+    font-weight: bold;
+}
+
+caption {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid black;
+}
+#title {
+    font-weight: bold;
+    border: 1px solid black;
+}
+table {
+    border: 1px solid black;
+    border-spacing: unset;
+}
+
+td:nth-child(1) {
+    font-weight: bold;
+    border-right: 1px solid black;
+
+}
+
+th:nth-child(1) {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-right: 1px solid black;
+}
+th, td{
+    padding-right: 10px;
+    padding-left: 10px;
+}

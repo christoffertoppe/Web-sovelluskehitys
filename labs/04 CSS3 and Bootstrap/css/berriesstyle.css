@@ -1,0 +1,61 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 72px;
+    margin: 0;
+}
+figure  {
+    margin-bottom: 30px;
+}
+img {
+    width: 100px;
+    border: 2px solid #c5d8f0;
+}
+
+figcaption {
+    font-weight: bold;
+    font-size: x-small;
+}
+p {
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+p.blueberry {
+    background: #c5d8f0;
+    font-size: x-small;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    margin-bottom: unset;
+    font-style: italic;
+}
+
+p.cloudberry {
+    background: #fbe8d8;
+    font-size: x-small;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    margin-bottom: unset;
+    margin-top: unset;
+    font-style: italic;
+}
+
+p.lingonberry {
+    background: #d89493;
+    font-size: x-small;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    margin-top: unset;
+    font-style: italic;
+}
+
+p.blueberry::first-line, p.cloudberry::first-line, p.lingonberry::first-line {
+    font-size: 24px;
+    font-style: normal;
+}
