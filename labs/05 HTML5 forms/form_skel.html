@@ -6,58 +6,143 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<link href="css/form.css" type="text/css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
 	</head>
-	
+
+
+
 	<body>
 		<h1>Turnitin</h1>
-		<form  lang="fi" action="">
-			<div>
-				Name: <input type="text" name="studentname"/>
-			</div>
-			<div>
-				Student id: <input type="text" name="id"  />
-			</div>
-			<div>
-				Email:
+		<form  name="form" lang="fi" action="no_link_found" onsubmit="myFunction()">
+			<fieldset>
+				<legend>Name:</legend>
+				 <input type="text" name="studentname" placeholder="your name"/>
+			</fieldset>
+			<fieldset>
+				<legend>Student id:</legend>
+				 <input type="text" name="id" placeholder="your student id six digits" pattern="[0-9]{6}"
+						oninvalid="MyID(this);" oninput="MyID(this);" required="required"
+				 />
+			</fieldset>
+			<fieldset>
+				<legend>Email:</legend>
+				<input type="email" id="email" title="Ge en giltig e-postadress" placeholder="add email" oninvalid="MyFunction(this);"
+							  oninput="MyFunction(this);" name="email" required="required"
+				/>
+
 				<!--
 				Make an input named "email"
 				-->
-			</div>
-			<div>
-				Assignment:
+
+			</fieldset>
+			<fieldset>
+				<legend>Assignment:</legend>
+				<input type="text" name="assignment" placeholder="your assignment">
 				<!--
 				Make an input named "assignment"
 				-->
-				
-			</div>
 
-			<div>
-				Code:
+			</fieldset>
+
+			<fieldset>
+				<legend>Code:</legend>
+				<input type="text" name="code" placeholder="enter code">
 				<!--
 				Make an input named "code" which is a text area to put student's code into.
 				-->
 				
-			</div>
-			<div>
-				Cheat:
-			<!--
+			</fieldset>
+			<fieldset>
+				<legend>Cheat:</legend>
+				<label><input type="checkbox" name="cheat" value="Cheater"> Do you want to cheat?
+				</label>
+					<!--
 				Make an input named "cheat" which is a check box the student must check.
-			-->
-			</div>
-			<div>
-				Pay:
+				-->
+			</fieldset>
+			<fieldset>
+				<legend>Payment:</legend>
+				<label>
+				<input type="radio" name="payment"> Do you want to make a payment?
+					</label>
 			<!--
 				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
 			-->
-			</div>
+			</fieldset>
+			<fieldset>
+				<legend>Score:</legend>
+				<select id="score" required>
+				<option value="">Select</option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				</select>
+				<!--
+                    Make an input named "score" which is a list of choices for the score
+                -->
+			</fieldset><br>
+
 			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
+				<input type="hidden" name="org" value="Form sent" />
 			</div>
-			<input type="submit" />
+			<input type="submit" value="Submit" onclick="MyDropDownMenu()"/>
+			<br>
+			<br>
+			<input type="reset" value="Reset everything!" />
 		</form>
+		<br>
 		<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
 	</body>
+
+
+	<script>
+		    function MyFunction(textbox) {
+				if (textbox.value === '') {
+					textbox.setCustomValidity
+					('e-postadress är nödvändig!');
+				} else if (textbox.validity.typeMismatch) {
+					textbox.setCustomValidity
+					('granska din e-postadress!');
+				} else {
+					textbox.setCustomValidity('');
+				}
+
+			}
+	</script>
+	<script>
+			function MyID(textbox) {
+				 if (textbox.value === '') {
+					textbox.setCustomValidity
+					('Din ID är sex siffrig!');
+				} else if (textbox.validity.typeMismatch) {
+					textbox.setCustomValidity
+					('Din ID är sex siffrig!');
+				} else if (textbox.value.length != 6) {
+					 textbox.setCustomValidity
+					 ('Din ID är sex siffrig!');
+				 } else if (isNaN(textbox.value)) {
+					 textbox.setCustomValidity
+					 ('Din ID är sex siffrig!');
+				 } else {
+					textbox.setCustomValidity('');
+				}
+			}
+	</script>
+	<script>
+		function MyDropDownMenu() {
+
+			var e = document.getElementById("score");
+			if(e.value == "") {
+				e.setCustomValidity
+				('Välj ett värde!');
+			} else {
+				e.setCustomValidity('');
+			}
+		}
+	</script>
 </html>
