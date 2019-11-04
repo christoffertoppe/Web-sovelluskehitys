@@ -9,7 +9,17 @@
 		var map = document.getElementById("map");
 		map.onmousemove = showCoords;
 		var mydiv = document.getElementById("mydiv");
-		mydiv.onclick = addtext;
+		//mydiv.onclick = addtext;
+		var ul = document.createElement("ul");
+
+
+		var lines = 10;
+		for(var i = 0; i < lines; i++) {
+          var li = document.createElement("li");
+		  ul.appendChild(li);
+		  li.innerHTML = "kiva juttu";
+        }
+		document.getElementById("body").appendChild(ul);
 	}
 	
 	function showCoords(eventObj) {
@@ -21,17 +31,24 @@
 
 	function addtext(){
 		if (document.createTextNode){
+
+		 var li = document.createElement("li");
+
 			var textToAdd = " Div was clicked! "
 			var newNode = document.createTextNode(textToAdd);
-			document.getElementById("mydiv").appendChild(newNode);
+			li.appendChild(newNode);
+			ul.appendChild(li);
+			//document.getElementById("mydiv").appendChild(newNode);
+          document.getElementById("mydiv").appendChild(ul);
+
 		} else {
 			alert("Looks like you have an old browser!");
 		}
 	}
   </script>
 </head>
-<body>
-	<img id="map" src="data/map.jpg">
+<body id="body">
+	<img id="map" src="data/map.jpg" alt="map">
 	<p id="coords">Move mouse over map to find coordinates...</p>
 	<div id="mydiv" style="border:1px solid red">I am a DIV! Click me.</div>
 </body>

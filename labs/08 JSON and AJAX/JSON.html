@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title> JSON </title>
@@ -18,8 +18,33 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+
+//div.innerHTML =`<p>` + employeeName + `</p>`;
   </script>
 </head>
 <body>
+
 </body>
+<script>
+  var employee = {
+    name: {
+      first: "Colin",
+      second: "Stephen"
+    },
+    title: "Assistant Lecturer"
+  };
+
+  var employeeInfo = JSON.stringify(employee);
+  var div = document.createElement("div");
+  div.innerHTML = employeeInfo;
+  console.log(employeeInfo);
+ document.body.appendChild(div);
+
+  var myObject = JSON.parse(employeeInfo);
+  var employeeName = myObject.name;
+
+  var divSecond = document.createElement("div");
+  divSecond.innerHTML = employeeName;
+  document.body.appendChild(divSecond);
+</script>
 </html>

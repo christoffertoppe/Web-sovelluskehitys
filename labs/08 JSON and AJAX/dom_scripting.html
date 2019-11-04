@@ -10,15 +10,18 @@
     <button id="write">Write Something</button>
 	<p id="output">Click button 3 to set this text.</p>
     <script src="js/dom_utils.js"></script>
+    <script src="js/dom_utils_global.js"></script>
     <script>
         // here we will use the 'U' object defined in the utils script file
 
         // first select the hello button
         // then add a click listener
+
         var helloButton = U.$('hello');
         var clickAction = function() { alert('Well HELLO!'); };
         U.addEvent(helloButton, 'click', clickAction);
-        
+
+
         // this one removes the listener after a click
         var helloOnce = U.$('hi');
         var alertOnce = function() {
@@ -27,10 +30,17 @@
         };
         U.addEvent(helloOnce, 'click', alertOnce);
 
+
+        window.$("write").$live("click", function() {
+            output = document.getElementById("output");
+            output.appendChild("Writing some new text for you.");
+        });
+        /*
         var writeText = U.$('write');
         U.addEvent(writeText, 'click', function() {
             U.setText('output', "Writing some new text for you.");
         });
+        */
     </script>
 </body>
 </html>

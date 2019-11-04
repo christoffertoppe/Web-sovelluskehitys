@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title> Handling events in IE8 and earlier </title>
@@ -29,9 +29,17 @@ function handleClick(e) {
 	alert("You clicked on " + target.id);
 }
 
+function hoverOverText() {
+  alert("you hovered on: " + document.getElementsByClassName("textsquare")[0].id);
+}
+
   </script>
 </head>
 <body>
 <span id="clickme">Click me!</span>
+
+<div class="textsquare" id="firsttext" onmouseover="hoverOverText()">
+  Here is some text
+</div>
 </body>
 </html>
