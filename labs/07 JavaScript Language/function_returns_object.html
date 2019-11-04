@@ -30,13 +30,39 @@
 		return car;
 	}
 
-	function displayCar(car) {
+	function displayCar(car, engine) {
 		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
+        console.log("Its engine is a " + engine.cylinders + " cylinder "
+                + engine.ccVolyme + " liter " + engine.fuelType + " engine with "
+                + engine.maxTorque + "NM torque")
 	}
 
 	var carToSell = makeCar();
-	displayCar(carToSell);
+    var carToSellEngine = makeEngine();
+	displayCar(carToSell, carToSellEngine);
 
+
+
+  function makeEngine() {
+    var cylinders = [4,6,8];
+    var ccVolume = [1.2,1.4,1.6,1.8,2];
+    var fuelType= ["Gasoline","Diesel","Bio-diesel"];
+    var maxTorque = [130,180,240,300];
+
+    var random1 = Math.floor(Math.random() * cylinders.length);
+    var random2 = Math.floor(Math.random() * ccVolume.length);
+    var random3 = Math.floor(Math.random() * fuelType.length);
+    var random4 = Math.floor(Math.random() * maxTorque.length);
+
+    var engine = {
+      cylinders: cylinders[random1],
+      ccVolyme: ccVolume[random2],
+      fuelType: fuelType[random3],
+      maxTorque: maxTorque[random4],
+    };
+    return engine;
+
+  }
   </script>
 </head>
 <body></body>

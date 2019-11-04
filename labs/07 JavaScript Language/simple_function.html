@@ -10,13 +10,16 @@
 </head>
 <body>
     <!-- tasks.html -->
-	<form action="#" method="post" id="theForm">
+	<form action="#" method="post" id="theForm" onsubmit="return false">
 	    <fieldset><legend>Enter an Item To Be Done</legend>
 	        <div><label for="task">Task</label><input type="text" name="task" id="task" required></div>
-	        <input type="submit" value="Add It!" id="submit">
+			<input type="button" id="btn" onclick="removeDuplicates()" value="Remove duplicates">
+			<input type="submit" value="Add It!" id="submit">
+
 	  <div id="output"></div>
 	    </fieldset>
 	</form>
     <script src="js/tasks.js"></script>
+
 </body>
 </html>
