@@ -568,7 +568,7 @@ In this example, we design a web page for a fictitious computer game. First, ope
 
 In your HTML file, you notice links to the bootstrap CSS files that are included from a content delivery network (CDN). This is done by adding the following lines inside the head element of the HTML page:
 ```html
- <!-- Latest compiled and minified CSS -->
+ css
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- jQuery library -->
