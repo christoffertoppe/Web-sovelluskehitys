@@ -8,10 +8,22 @@ function process() {
 
     // Variable to represent validity:
     var okay = true;
-    
+
+
+
+
     // Get form references:
+    var name = document.getElementById("name");
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+
+
+    if(!name || !name.value||  name.value.length < 3 || name.value.length > 100 || name.value.indexOf(" ") === -1){
+        okay = false;
+        alert("Full name must contain two parts and be between 3 and 100 chars");
+    }
+
+
     // Validate the email address:
     if (!email || !email.value 
     || (email.value.length < 6) 

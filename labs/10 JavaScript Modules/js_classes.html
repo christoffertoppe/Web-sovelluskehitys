@@ -29,18 +29,79 @@ function Coffee(roast, ounces) {
 				msg = "We don't have a " + this.roast + " in that size!";
 				break;
 		}
+
 		return msg;
 	};
+     this.sip = function() {
+       console.log("Hmm, tasty");
+     }
+
+
 }
 
-var coffee = new Coffee("House Blend", 12);
-console.log(coffee.order());
+function Tea(type, ounces) {
+  this.type = type;
+  this.ounces = ounces;
 
-var darkRoast = new Coffee("Dark Roast", 16);
-console.log(darkRoast.order());
+  this.getSteepTime = function() {
+      var value =  Math.floor(Math.random() * 3);
+      if(value === 0)return "short";
+      if(value === 1)return "medium";
+      if(value === 2)return "long";
+  };
 
-var specialBlend = new Coffee("Special Blend", 200);
-console.log(specialBlend.order());
+  this.getSize = function() {
+    if (this.ounces === 8) {
+      return "small";
+    } else if (this.ounces === 12) {
+      return "medium";
+    } else if (this.ounces === 16) {
+      return "large";
+    }
+  };
+
+    this.order = function() {
+      var msg;
+      switch (this.getSize()) {
+        case "small":
+        case "medium":
+        case "large":
+          msg = "You've ordered a " + this.getSize() + " " + this.type + " tea." +
+              " It has been steeped for a " + this.getSteepTime() + " time.";
+          break;
+        default:
+          msg = "We don't have  " + this.type + " tea in that size!";
+          break;
+      }
+
+      return msg;
+    };
+
+  this.sip = function() {
+    return "Hmm, tasty";
+
+  }
+}
+
+  var coffee = new Coffee("House Blend", 12);
+  console.log(coffee.order());
+
+  var darkRoast = new Coffee("Dark Roast", 16);
+  console.log(darkRoast.order());
+
+  var specialBlend = new Coffee("Special Blend", 200);
+  console.log(specialBlend.order());
+
+  var blackTea = new Tea("Earl Gray", 12);
+  console.log(blackTea.order());
+
+  var greenTea = new Tea("Earl Green", 2);
+  console.log(greenTea.order());
+
+  var whiteTea = new Tea("White", 4);
+  console.log(whiteTea.order());
+console.log(whiteTea.sip());
+
 
 </script>
 </head>

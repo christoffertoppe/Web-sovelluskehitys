@@ -42,11 +42,50 @@ window.onload = function() {
 	};
 };
 
+window.onload = function() {
+	var speedDiv = document.getElementById("playback-speed");
+	var speed = 10;
+	speedDiv.innerHTML = speed + " speed now"
+
+
+	var minus = document.getElementById("minus");
+	var zero = document.getElementById("zero");
+	var plus = document.getElementById("plus");
+
+	minus.onclick = function() {
+		speed--;
+		update(speed);;
+	};
+
+	zero.onclick = function() {
+		speed = 0;
+		update(speed);;
+	};
+
+	plus.onclick = function() {
+		speed++;
+		update(speed);
+	};
+
+	function update(speed) {
+		speedDiv.innerHTML = speed + " speed now"
+	}
+
+};
+
+
+
 </script> 
 </head> 
 <body>
 	<button id="clickme">Click me!</button>
 	<div id="message"></div>
+	<br>
+	<div id="playback-speed"></div>
+	<button id="minus">-</button>
+	<button id="zero">0</button>
+	<button id="plus">+</button>
+
 </body>
 </html>
 

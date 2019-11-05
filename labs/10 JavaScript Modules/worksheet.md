@@ -84,7 +84,7 @@ Together these JS modules implement the “model” part of MVC (Model View Cont
 These things are all typical of the “module pattern” in JS. For more on it, see the website linked to above.
 
 ### Test your understanding
-
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Write a short module that exports a utility object called “$” to the global namespace.
 
 This object should reimplement the JS document.getElementById() selector method using its own method $.id().
