@@ -1,11 +1,14 @@
 var notes = [];
-
+var noteNumber = 1;
 /*
  * displays the 'add' screen if this has been bookmarked by user
  */
 if (window.location.hash == '#add' || notes.length === 0) {
 	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = '';
+
 } else {
+	document.getElementById('editPage').style.display = '';
 	document.getElementById('addPage').style.display = 'none';
 }
 
@@ -13,17 +16,35 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+	var  ul = document.querySelector("ul");
+
+	ul.appendChild(note);
 };
+
 
 /*
  * handles navigation between the add and edit 'screens'
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = '';
+
+	document.querySelector('#addPage input').value = document.querySelector('#editPage input').value;
+	document.querySelector('#addPage textarea').value = document.querySelector('#editPage textarea').value;
+
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('editPage').style.display = '';
+	document.getElementById('addPage').style.display = 'none';
+
+
+	document.querySelector('#editPage input').value = document.querySelector('#addPage input').value;;
+	document.querySelector('#editPage textarea').value = document.querySelector('#addPage textarea').value;
+
+
 };
 
 

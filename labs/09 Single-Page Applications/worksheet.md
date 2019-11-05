@@ -78,5 +78,7 @@ In this final activity you will be applying the skills you acquired in the previ
 Its now time to implement the missing functionality:
 
 1. The links should allow you to toggle between the add and edit content. At the moment this functionality is missing. See if you can fix this (the code on lines 7-9 should give you a clue).
+!!!!!!!1
 2. Next we need to add new note objects to the notes array when the add button is clicked. The basic function has already been written. You need to complete it. Make sure you clear the title and note fields once the note has been added. Call the loadList function to load the list items into the notes list.
 3. Finally, as the user changes the title or note you need to update the appropriate object in the array.
+!!!!!!!!
