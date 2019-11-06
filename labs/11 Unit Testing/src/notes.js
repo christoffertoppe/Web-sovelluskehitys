@@ -3,18 +3,19 @@ var notes = (function() {
   var notes = [];
   var stringList = [];
 
+
   return {
     add: function(note) {
 
-      note.trim();
-      note = String(note);
-      note = note.replace(" ","");
       var item = {timestamp: Date.now(), text: note};
-      if (note.localeCompare("") === 0) {
-        return false;
-    }
-      list.push(item);
-      return true;
+      if(typeof note === "string") {
+         note = note.trim();
+        if (note.localeCompare("") !== 0) {
+          list.push(item);
+          return true;
+        }
+      }
+      return false;
     },
 
     remove: function(index) {
@@ -37,10 +38,13 @@ var notes = (function() {
     },
 
     find: function(str) {
-
+      stringList.length = 0;
+      str = str.toLowerCase();
+      if(str.localeCompare("") === 0) return false;
       for(let i = 0; i < list.length; i++) {
         if (list[i].text.includes(str)) {
          stringList.push(list[i].text);
+
         }
       }
       if (stringList.length > 0) {

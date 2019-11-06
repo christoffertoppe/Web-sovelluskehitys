@@ -1,11 +1,11 @@
 describe('notes', function() {
   beforeEach(function() {
     notes.clear();
-    notes.add('one');
-    notes.add('two');
-    notes.add('three');
-    notes.add('four');
-    notes.add('five');
+    notes.add('first note');
+    notes.add('second note');
+    notes.add('third note');
+    notes.add('fourth note');
+    notes.add('fifth note');
   });
 
   describe('**add(note)**', function() {
@@ -49,9 +49,29 @@ describe('notes', function() {
   });
 
   describe('**find(string)**', function() {
-    it('should find 1 value that is equal to [\'two\']', function() {
-      expect(notes.find('two')).toEqual(['two']);
+    it('should find the word you looking for note', function() {
+      expect(notes.find('note')).toEqual([ 'first note', 'second note', 'third note', 'fourth note', 'fifth note' ]);
     });
+    it('should find the word you looking for Note', function() {
+      expect(notes.find('Note')).toEqual([ 'first note', 'second note', 'third note', 'fourth note', 'fifth note' ]);
+
+    });
+    it('should find the word you looking for th', function() {
+      expect(notes.find('th')).toEqual([ 'third note', 'fourth note', 'fifth note' ]);
+    });
+
+    it('should find the word you looking for four', function() {
+      expect(notes.find('four')).toEqual([ 'fourth note' ]);
+    });
+
+    it('should find the word you looking for six', function() {
+      expect(notes.find('six')).toBe(false);
+    });
+
+    it('should find the word you looking for blank string', function() {
+      expect(notes.find('')).toBe(false);
+    });
+
   });
 
   describe('**clear()**', function() {
