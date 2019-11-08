@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue02</title>
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app-2">
+    <span v-if="seen"><h2>Now you see me</h2></span><br>
+    <button id="app" v-on:click="seen = !seen">Näytä/Piilota</button>
+</div>
+
+<script>
+var app = new Vue({
+  el: '#app-2',
+  data: {
+    seen:true
+  }
+
+})
+
+</script>
+</body>
+</html>

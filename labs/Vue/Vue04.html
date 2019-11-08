@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+ <div id="app">
+     <h1>To-Do List</h1>
+     <ul v-html="listItem">
+         <li v-for="item in items">
+          {{ listItem }}
+         </li>
+     </ul>
+     <input id="textField" v-model="textInput"><button v-on:click="add"> Add </button>
+ </div>
+
+<script>
+    const app = new Vue ({
+      textInput: "",
+      el: '#app',
+      data: {
+        listItem: ""
+      },
+      methods: {
+        add: function(event) {
+          this.listItem = this.listItem + "<li>" + this.textInput + "</li><br>"      }
+      }
+        })
+</script>
+</body>
+</html>

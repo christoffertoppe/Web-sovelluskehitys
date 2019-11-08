@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue03</title>
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app-3">
+    {{ value }}
+    <br>
+<button id="minus" v-on:click="minus">-</button>
+<button id="zero" v-on:click="zero">0</button>
+<button id="plus" v-on:click="plus">+</button>
+</div>
+
+</body>
+
+<script>
+    var app = new Vue ({
+      el: '#app-3',
+      data: {
+        value: "0"
+      },
+      methods: {
+        minus: function (event) {
+        return this.value = parseInt(this.value) -1
+        },
+        zero: function (event) {
+          return this.value = 0
+        },
+        plus: function (event) {
+          return this.value = 1 + parseInt(this.value)
+
+        }
+      }
+    })
+</script>
+</html>
