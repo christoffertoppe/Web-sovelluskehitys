@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue06</title>
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>To-Do List</h1>
+    <ul>
+        <li v-for="item in items">
+            {{ item }}
+        </li>
+    </ul>
+    <input id="textField" v-model="textInput">
+    <button @click="add"> Add</button>
+    <button @click="remove"> Remove</button>
+</div>
+
+<script>
+  itemList = [];
+  const app = new Vue({
+    textInput: '',
+    el: '#app',
+    data: {
+      items: [],
+    },
+    methods: {
+      add: function(event) {
+        text = document.getElementById('textField');
+        text = text.value;
+        index = 0;
+        if (itemList.length > 0) {
+          index = itemList.length;
+        }
+        itemList[index] = text;
+
+        this.items = itemList
+        this.items.push();
+      },
+
+      remove: function(event) {
+        itemList.shift();
+        this.items = itemList;
+      },
+
+    },
+  });
+</script>
+</body>
+</html>
